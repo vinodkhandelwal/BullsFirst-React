@@ -1,21 +1,11 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
 import AccountsGrid from './AccountsGrid.js';
 import AccountsChart from './AccountsChart.js';
 import AccountsHeader from './AccountsHeader.js';
 import {connect} from 'react-redux';
-
-var initialAccounts = [
-  { "name": "Brokerage Account 3", "marketValue": 1999990, "cash": 1995826},
-  { "name": "Account 3", "marketValue": 1949990, "cash": 1695856},
-  { "name": "Brokerage Account 1", "marketValue": 1349990, "cash": 1595866},
-  { "name": "Brokerage Account 4", "marketValue": 155990, "cash": 160826},
-  { "name": "Brokerage Account 2", "marketValue": 745600, "cash": 199560},
-  { "name": "Account 4", "marketValue": 550060, "cash": 530060},
-  { "name": "Account 13", "marketValue": 373400, "cash": 0},
-  { "name": "Joint Account 1", "marketValue": 283080, "cash": 416700},
-  { "name": "Joint Account 2", "marketValue": 1000000, "cash": 1000000}
-]
+import {bindActionCreators} from 'redux';
+import * as accountActions from '../../actions/accountActions';
 
 function randomColor(brightness){
   function randomChannel(brightness){
@@ -28,19 +18,8 @@ function randomColor(brightness){
 }
 
 class AccountsPage extends React.Component {
-  constructor() {
-    super();
-
-    for (let account of initialAccounts) {
-      account.color = randomColor(120);
-    }
-
-    this.state = {
-      accounts: initialAccounts.slice()
-    };
-
-    this.onAddAccount = this.onAddAccount.bind(this);
-    this.onRefresh = this.onRefresh.bind(this);
+  constructor(props,context) {
+    super(props,context);
   }
 
   onAddAccount(){
@@ -49,42 +28,40 @@ class AccountsPage extends React.Component {
       cash: Math.random() * 4000000,
       color:randomColor(120)};
 
-    let currentAccounts = this.state.accounts;
-    currentAccounts.push(newAccount);
-    this.setState({
-      accounts: currentAccounts
-    });
+    this.props.actions.addAccount(newAccount);
   }
 
   onRefresh(){
-    for (let account of initialAccounts) {
-      account.color = randomColor(120);
-    }
-
-    this.setState({
-      accounts: initialAccounts.slice()
-    });
+    this.props.actions.refreshAccounts();
   }
 
   render() {
     return (
         <div className='accounts-page'>
           <AccountsHeader addAccount={() => this.onAddAccount()} refresh={() => this.onRefresh()}/>
-          <AccountsGrid accounts={this.state.accounts} />
-          <AccountsChart accounts={this.state.accounts} />
+          <AccountsGrid accounts={this.props.accounts} />
+          <AccountsChart accounts={this.props.accounts} />
         </div>
     );
   }
 }
 
-function mapStateToProps(state, ownProps){
-    return{
-      accounts: state.accounts
-    }
-
+AccountsPage.propTypes = {
+  accounts: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired
 }
 
-export default AccountsPage;
+function mapStateToProps(state, ownProps){
+  return{
+    accounts: state.accounts
+  }
+}
 
-//const connectedStateAndProps = connect(mapStateToProps);
-//export default connectedStateAndProps(AccountsPage);
+function mapDispatchToProps(dispatch){
+  return{
+    actions: bindActionCreators(accountActions, dispatch)
+  }
+}
+
+const connectedStateAndProps = connect(mapStateToProps,mapDispatchToProps);
+export default connectedStateAndProps(AccountsPage);

@@ -152,6 +152,8 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
     padding-top: 90px;
     margin-left: 27px;
     padding-bottom: 40px;
+    padding-left:30px;
+    padding-right: 30px;
     background-color: #F7E7BD;
 }
 
