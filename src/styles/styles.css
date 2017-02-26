@@ -1,0 +1,184 @@
+body {
+    font-size: 14px;
+    font-family: "Helvetica Neue", "Arial", "sans-serif";
+
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+button {
+    width: 100px;
+    background: orange;
+    border: 1px solid darkred;
+    margin-right: 10px;
+
+    box-shadow: 1px 1px 3px #333;
+}
+
+img {
+    width: 100%;
+    max-width: 100%;
+    border: none;
+}
+
+/* Header */
+#header {
+    background: orange;
+    padding: 30px 20px;
+}
+
+#header .subtitle {
+    font-size: 0.8rem;
+    margin-top: 4px;
+}
+
+#content {
+    display: flex;
+    margin-top: 20px;
+}
+/* Left Section */
+
+.left-section {
+    flex: 1;
+    margin-right: 20px;
+}
+.left-section .header {
+    display: flex;
+    height: 30px;
+}
+
+/*.left-section .header button {
+    height: 25px;
+}*/
+.left-section .header > .actions {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+table th {
+    background: #ccc;
+    padding: 5px;
+}
+.totals td {
+    border-top: 3px solid #ccc;
+}
+
+.legend {
+    width: 30px;
+    height: 16px;
+}
+
+/* Right Section */
+.right-section {
+    width: 300px;
+    background: #ccc;
+}
+.right-section .chart {
+    height: 300px;
+}
+
+.right-section .help-label {
+    padding: 10px;
+}
+
+.grid {
+    margin-top: 20px;
+}
+
+.ui-grid-cell-contents div{
+    width: 40px;
+    height:20px;
+    margin: auto;
+}
+
+#pie{
+    margin-top: 100px;
+}
+
+
+#header .container {
+    width: auto;
+}
+
+.navbar-brand{
+    font-size: 36px;
+    color: black;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #000;  /*Sets the text hover color on navbar*/
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active >
+a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    color: white; /*BACKGROUND color for active*/
+    background-color: #286090;
+}
+
+.navbar-default {
+    background-color: #0f006f;
+    border-color: transparent;
+
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+    color: #262626;
+    text-decoration: none;
+    background-color: #66CCFF;  /*change color of links in drop down here*/
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+    text-decoration: none;
+    background-color: silver; /*Change rollover cell color here*/
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: white; /*Change active text color here*/
+}
+
+.navbar-default .navbar-brand,.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
+    color: #286090;
+}
+
+.accounts-page{
+    display: flex;
+    flex-flow: row wrap;
+}
+.account-chart {
+    width: 450px;
+    padding-top: 90px;
+    margin-left: 27px;
+    padding-bottom: 40px;
+    background-color: #F7E7BD;
+}
+
+.ReactTable .-pagination .-previous, .ReactTable .-pagination .-next {
+    -webkit-box-flex: 0;
+    -ms-flex: 0;
+    flex: 0;
+}
+
+.ReactTable .rt-thead .rt-tr {
+    background-color: #F6A03D;
+}
+
+.ReactTable.-striped .rt-tr.-odd {
+    background-color: #F7E7BD;
+}
+
+.ReactTable .-pagination .-btn {
+    background-color: #F6A03D;
+}
+
+.accounts-header{
+    display: flex;
+    flex: 1 100%;
+    justify-content: space-between;
+    margin-bottom: 10px;
+ }
+
+
+
