@@ -32,7 +32,7 @@ class AccountsPage extends React.Component {
   }
 
   onRefresh(){
-    this.props.actions.refreshAccounts();
+    this.props.actions.loadAccounts();
   }
 
   render() {

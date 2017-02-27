@@ -5,10 +5,12 @@ import {Router, browserHistory} from 'react-router';
 import configureStore from './store/configureStore'
 import {Provider} from 'react-redux';
 import routes from './routes';
+import {loadAccounts} from './actions/accountActions';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './styles/styles.css';
 
 const store = configureStore();
+store.dispatch(loadAccounts());
 
 render(
     <Provider store={store}>
