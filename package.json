@@ -1,17 +1,22 @@
 {
-  "name": "pluralsight-redux-starter",
+  "name": "Bulls-First-React",
   "version": "1.0.0",
-  "description": "Starter kit for React and Redux Pluralsight course by Cory House",
+  "description": "React Demo Project",
   "scripts": {
-    "prestart": "babel-node tools/startMessage.js",
-    "start": "npm-run-all --parallel open:src",
+    "start": "npm-run-all --parallel open:src test:watch lint:watch",
     "open:src": "babel-node tools/srcServer.js",
     "lint": "node_modules/.bin/esw webpack.config.* src tools",
     "lint:watch": "npm run lint -- --watch",
-    "test": "mocha --reporter progress tools/testSetup.js \"src/**/*.test.js\"",
-    "test:watch": "npm run test -- --watch"
+    "test": "mocha --reporter spec tools/testSetup.js \"src/**/*.spec.js\"",
+    "test:watch": "npm run test -- --watch",
+    "clean-dist": "npm run remove-dist && mkdir dist",
+    "remove-dist": "node_modules/.bin/rimraf ./dist",
+    "build:html": "babel-node tools/buildHtml.js",
+    "prebuild": "npm-run-all clean-dist test lint build:html",
+    "build": "babel-node tools/build.js",
+    "postbuild": "babel-node tools/distServer.js"
   },
-  "author": "Cory House",
+  "author": "Vinod",
   "license": "MIT",
   "dependencies": {
     "babel-polyfill": "6.8.0",
@@ -69,9 +74,5 @@
     "webpack": "1.13.0",
     "webpack-dev-middleware": "1.6.1",
     "webpack-hot-middleware": "2.10.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/coryhouse/pluralsight-redux-starter"
   }
 }

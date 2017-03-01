@@ -9,9 +9,9 @@ import * as accountActions from '../../actions/accountActions';
 
 function randomColor(brightness){
   function randomChannel(brightness){
-    var r = 255-brightness;
-    var n = 0|((Math.random() * r) + brightness);
-    var s = n.toString(16);
+    let r = 255-brightness;
+    let n = 0|((Math.random() * r) + brightness);
+    let s = n.toString(16);
     return (s.length==1) ? '0'+s : s;
   }
   return '#' + randomChannel(brightness) + randomChannel(brightness) + randomChannel(brightness);
@@ -37,7 +37,7 @@ class AccountsPage extends React.Component {
 
   render() {
     return (
-        <div className='accounts-page'>
+        <div className="accounts-page">
           <AccountsHeader addAccount={() => this.onAddAccount()} refresh={() => this.onRefresh()}/>
           <AccountsGrid accounts={this.props.accounts} />
           <AccountsChart accounts={this.props.accounts} />
@@ -49,18 +49,18 @@ class AccountsPage extends React.Component {
 AccountsPage.propTypes = {
   accounts: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
-}
+};
 
 function mapStateToProps(state, ownProps){
   return{
     accounts: state.accounts
-  }
+  };
 }
 
 function mapDispatchToProps(dispatch){
   return{
     actions: bindActionCreators(accountActions, dispatch)
-  }
+  };
 }
 
 const connectedStateAndProps = connect(mapStateToProps,mapDispatchToProps);

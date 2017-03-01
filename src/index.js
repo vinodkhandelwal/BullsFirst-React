@@ -2,7 +2,7 @@ import 'babel-polyfill';
 import React from 'react';
 import {render} from 'react-dom';
 import {Router, browserHistory} from 'react-router';
-import configureStore from './store/configureStore'
+import configureStore from './store/configureStore.dev';
 import {Provider} from 'react-redux';
 import routes from './routes';
 import {loadAccounts} from './actions/accountActions';

@@ -8,7 +8,7 @@ export default function accountReducer(state=[], action) {
         case types.ADD_ACCOUNT:
             return [...state,
                 Object.assign({}, action.account)
-            ]
+            ];
 
         default:
             return state;

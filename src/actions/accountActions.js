@@ -1,5 +1,5 @@
 import * as types from './actionTypes';
-import accountsApi from '../api/accountsApi'
+import accountsApi from '../api/accountsApi';
 
 export function loadAccountsSuccess(accounts){
     return {type: types.LOAD_ACCOUNTS_SUCCESS, accounts};

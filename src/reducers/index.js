@@ -3,6 +3,6 @@ import accounts from './accountReducer.js';
 
 const rootReducer = combineReducers({
     accounts
-})
+});
 
 export default rootReducer;
