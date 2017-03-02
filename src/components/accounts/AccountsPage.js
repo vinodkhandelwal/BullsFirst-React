@@ -17,7 +17,7 @@ function randomColor(brightness){
   return '#' + randomChannel(brightness) + randomChannel(brightness) + randomChannel(brightness);
 }
 
-class AccountsPage extends React.Component {
+export class AccountsPage extends React.Component {
   constructor(props,context) {
     super(props,context);
   }

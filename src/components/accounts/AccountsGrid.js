@@ -24,7 +24,7 @@ const AccountsGrid = (props) => {
     }
 
     const columns = [
-        { accessor: 'name', header: 'Name',width: 185 },
+        { accessor: 'name', header: 'Name',width: 180 },
         { accessor: 'marketValue',
           header: 'Market Value',
           footer: 'Total: ' + formatter.format(marketValSum),
@@ -34,10 +34,10 @@ const AccountsGrid = (props) => {
         { accessor: 'cash',
           header: 'Cash',
           footer: 'Total: ' + formatter.format(cashSum),
-          width: 135,
+          width: 145,
           render: row => {return formatter.format(row.value);}
         },
-        { accessor: 'color', header: 'Legend', width: 75,
+        { accessor: 'color', header: 'Legend', width: 70,
         render: row => (
            <div
              style={{
